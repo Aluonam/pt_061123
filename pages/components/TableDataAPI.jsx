@@ -2,10 +2,10 @@ import React, {useState, useEffect} from 'react'
 
 const TableDataAPI = () => {
 
-    const [dataAPI, setDataAPI] = useState()
+    const [dataAPI, setDataAPI] = useState([])
 
     useEffect(() => {
-      const apiUrl = `https://randomuser.me/api/?results=30`;
+      const apiUrl = `https://randomuser.me/api/?results=20`;
       fetch(apiUrl) 
             .then(response => response.json())
             // .then(data=>console.log(data.results))
