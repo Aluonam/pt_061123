@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
 import TableDataAPI from './components/TableDataAPI'
+import InputLastLetter from './components/InputLastLetter'
 
 export default function Home() {
   return (
@@ -13,6 +14,8 @@ export default function Home() {
       </Head>
       <main className={`${styles.main}`}>
         <TableDataAPI></TableDataAPI>
+        <br></br>
+        <InputLastLetter></InputLastLetter>
       </main>
     </>
   )
