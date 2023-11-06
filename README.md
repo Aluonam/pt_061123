@@ -72,5 +72,91 @@ Tareas secundarias
   ```
 
 **Crea un input que permita escribir al usuario y cuenta las consonantes sacando el resultado en la pantalla a medida que escribe**
+    1. Crea e importa componente
+    2. Crea dentro del componente el input que va a guardar lo que recibe con e.target.value y se lo va a pasar como props a la función que crearemos a continuación.
+    3. Crea useState para guardar lo que escribe el usuario.
+    4. Crea función flecha que recibirá un valor (lo que escribe el usuario y que ponemos en el input como e.target.value).
+                4.1. Recibe valor como props. ```const handleDetectedConsonant = (value)=>{```
+                4.2. Especifica que el set tiene ese valor. ```setInputText(value)```
+                4.3. Crea const con un array con las vocales. ``` const vocals = ["a", "e", "i", "o", "u"];```
+                4.4. Crea const que coge el valor recibido por props (lo que ha escrito el usuario) y le hace .split(" ") para separar por espacios.  .join("") para unir todas las letras juntas sin espacios. y .split("") para separar cada letra. 
+                ```const letterByLetter = value.split(" ").join("").split("")```
+                *Si imprimes por consola el resultado será cada letra por separado en un array y sin espacios.
+                4.5.Crea variable (let) que será el contador (guardará el numero del consonantes que vayan escribiendo). 
+                ```let numberConsonants = 0```
+                4.5. Se coge la constante que guarda el array de letras separadas (declarada en el punto 4.4) y se le hace un filter(()=>{}).
+                        En el filter se recibe cada letra
+                        Se declara una const para saber si es vocal cogiendo la constante que contiene las vocales (declarada en el punto 4.3) y se hace .some(()=>)
+                        El some recibe el elemento y compara ese elemento con el parámetro que ha recibido el filter (letra por letra) haciendolo minúscula usando .toLowerCase() 
+                        ```const isVocal = vocals.some((element)=> element==letter.toLowerCase())```
+                        If es distinto de vocal añade al contador 1 (++)
+                        ```if (!isVocal){numberConsonants++}```
+                        El some finaliza, el filter finaliza.
+                4.6. Se crea otro useState para guardar el resultado de esta funcion (se declara fuera) guardará el número del contador una vez aplicada la lógica anterior.
+                Y dentro de la función se declara que el set de ese nuevo estado (contador) es la variable que guarda el contador dentro de la función.
+
+    5. Se muestra por pantalla el resultado de esta función guardado en el state del contador.
+**CÓDIGO COMPLETO** 
+```javascript
+    const [inputText, setInputText] = useState("");
+    const [totalNumConsonant, setTotalNumConsonant] = useState();
+
+    const handleDetectedConsonant = (value)=>{
+        setInputText(value)
+        const vocals = ["a", "e", "i", "o", "u"];
+        const letterByLetter = value.split(" ").join("").split("")
+        let numberConsonants = 0
+        letterByLetter.filter((letter)=>{
+                const isVocal = vocals.some((element)=> element==letter.toLowerCase())
+                if (!isVocal){numberConsonants++}
+                } 
+        )
+        setTotalNumConsonant(numberConsonants)
+    }
+  return (
+    <>
+    <br/>
+    <div>Escribe para detectar las consonantes</div>
+    <br/>
+    <input onChange={(e)=>{handleDetectedConsonant(e.target.value)}}></input>
+    <br/>
+    {totalNumConsonant}
+    </>
+  )
+} 
+```
+
 
 **Crea un input que permita escribir al usuario y cuenta las palabras sacando el resultado en la pantalla a medida que escribe**
+
+    1. Crea componente e importalo
+    2. Crea estrucutura del input con onChange que mandará por props (e.target.value) a la función.
+    3. Crea useState para guardarlo que escribe el usuario (por defecto se guardará en un array).
+    4. Crea useState que guardará el contador, por defecto será 0.
+    5. Crea función (llamada en el onChange) que recibe como parámetro el valor que escribe el usuario.
+                5.1. Recibe por props el valor ```const counterWords = (value)=>{}```
+                5.2. Ese valor se mete en el useState que guarda lo que escriba el usuario. ```setInputUser(value)```
+                5.3. Crea una const que haga del valor que escribe el usuario (no de la variable del useState, sino del parámetro que acaba de recibir la función) .split(" ") para separar los espacios y .length para ver la longitud.  ```const lengthWord = value.split(" ").length ```
+                5.4. Se guarda la const creada anteriormente (5.3) en el set del useState que guarda el contador ```setNumberWords(lengthWord)```
+    6. Se muestra en pantalla la variable contador del useState. ```{numberWords}```
+
+**CÓDIGO COMPLETO** 
+```javascript
+    const [inputUser, setInputUser] = useState([]);
+    const [numberWords, setNumberWords] = useState(0);
+
+    const counterWords = (value)=>{
+        setInputUser(value)
+        const lengthWord = value.split(" ").length 
+        setNumberWords(lengthWord)
+    }
+
+  return (
+    <>
+    <div>WordsCounter</div>
+    <input onChange={(e)=>{counterWords(e.target.value)}}></input>
+    {inputUser}
+    {numberWords}
+    </>
+  )
+```
