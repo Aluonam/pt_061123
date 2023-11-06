@@ -2,7 +2,7 @@ import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
 import TableDataAPI from './components/TableDataAPI'
 import InputLastLetter from './components/InputLastLetter'
-import DetectedUpperCase from './components/DetectedUpperCase'
+import DetectedConsonant from './components/DetectedConsonant'
 
 export default function Home() {
   return (
@@ -18,7 +18,7 @@ export default function Home() {
         <br></br>
         <InputLastLetter></InputLastLetter>
         <br></br>
-        <DetectedUpperCase></DetectedUpperCase>
+        <DetectedConsonant></DetectedConsonant>
       </main>
     </>
   )
