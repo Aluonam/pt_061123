@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 
 const DetectedConsonant = () => {
-    const [inputText, setInputText] = useState("")
+    const [inputText, setInputText] = useState("");
+    const [totalNumConsonant, setTotalNumConsonant] = useState();
 
     const handleDetectedConsonant = (value)=>{
         setInputText(value)
@@ -14,9 +15,7 @@ const DetectedConsonant = () => {
                 if (!isVocal){numberConsonants++}
                 } 
         )
-
-        console.log(letterByLetter)
-        console.log("consonantes: ", numberConsonants)
+        setTotalNumConsonant(numberConsonants)
     }
   return (
     <>
@@ -25,7 +24,7 @@ const DetectedConsonant = () => {
     <br/>
     <input onChange={(e)=>{handleDetectedConsonant(e.target.value)}}></input>
     <br/>
-    {inputText}
+    {totalNumConsonant}
     </>
   )
 }
