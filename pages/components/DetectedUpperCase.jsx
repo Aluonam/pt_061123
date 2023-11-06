@@ -2,7 +2,14 @@ import React from 'react'
 
 const DetectedUpperCase = () => {
   return (
-    <div>DetectedUpperCase</div>
+    <>
+    <br/>
+    <div>Escribe una frase</div>
+    <input onChange={(e)=>{e.target.value}}></input>
+    <br/>
+    <button onClick={()=>{}}>¿Cuáles son mayúsculas?</button>
+
+    </>
   )
 }
 
