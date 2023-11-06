@@ -19,8 +19,8 @@ const TableDataAPI = () => {
             <>
             <tr>
                 <td>{actual.name.first} {actual.name.last}</td>
-                <td>1</td>
-                <td>1</td>
+                <td>{actual.login.username}</td>
+                <td>{actual.login.password}</td>
                 <td>1</td>
                 <td>1</td>
             </tr>
