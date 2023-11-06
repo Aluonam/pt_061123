@@ -20,7 +20,7 @@ const DetectedConsonant = () => {
   return (
     <>
     <br/>
-    <div>Escribe para detectas las consonantes</div>
+    <div>Escribe para detectar las consonantes</div>
     <br/>
     <input onChange={(e)=>{handleDetectedConsonant(e.target.value)}}></input>
     <br/>

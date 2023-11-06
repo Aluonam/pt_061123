@@ -2,8 +2,7 @@ Tarea principal
 
 Consume una API y muestra parte de los datos en una tabla y otros en un modal (puedes repetir alguna columna)
 
-API URL: https://randomuser.me/
-
+API URL: https://randomuser.me/   --> https://randomuser.me/api/?results=50
 
 Tareas secundarias
 
