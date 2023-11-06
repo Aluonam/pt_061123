@@ -5,7 +5,7 @@ const TableDataAPI = () => {
     const [dataAPI, setDataAPI] = useState()
 
     useEffect(() => {
-      const apiUrl = `https://randomuser.me/api/?results=50`;
+      const apiUrl = `https://randomuser.me/api/?results=30`;
       fetch(apiUrl) 
             .then(response => response.json())
             // .then(data=>console.log(data.results))
@@ -14,7 +14,20 @@ const TableDataAPI = () => {
       
     }, [])
 
-
+    const dataForTable = dataAPI.map((actual)=>{
+        return(
+            <>
+            <tr>
+                <td>{actual.name.first} {actual.name.last}</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            </>
+        )
+    })
+    
 
   return (
     <>
@@ -30,13 +43,7 @@ const TableDataAPI = () => {
             </tr>
         </thead>
         <tbody>
-        <tr>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-            </tr>
+            {dataForTable}
         </tbody>
     </table>
     </>
