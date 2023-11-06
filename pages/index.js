@@ -3,6 +3,7 @@ import styles from '@/styles/Home.module.css'
 import TableDataAPI from './components/TableDataAPI'
 import InputLastLetter from './components/InputLastLetter'
 import DetectedConsonant from './components/DetectedConsonant'
+import WordsCounter from './components/WordsCounter'
 
 export default function Home() {
   return (
@@ -19,6 +20,8 @@ export default function Home() {
         <InputLastLetter></InputLastLetter>
         <br></br>
         <DetectedConsonant></DetectedConsonant>
+        <br></br>
+        <WordsCounter></WordsCounter>
       </main>
     </>
   )
